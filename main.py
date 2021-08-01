@@ -358,3 +358,27 @@ def sum13(list_of_num):
         elif len(list_of_num) == 0:
             return 0
     return sum_of_num
+
+def has22(nums):
+    '''
+    Given an array of ints, return True if the array contains a 2 next to a 2 somewhere.
+
+
+    >>> has22([1, 2, 2])
+    True
+    >>>has22([1, 2, 1, 2])
+    False
+    >>>has22([2, 1, 2])
+    False
+    '''
+    two = []
+    for i in range(0, len(nums)):
+        if nums[i] == 2:
+            two.append(i)
+            continue
+    if len(two) >= 2:
+        for j in range(0, len(two) - 1):
+            if abs(two[j] - two[j + 1]) == 1:
+                return True
+    return False
+
