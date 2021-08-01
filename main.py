@@ -336,3 +336,25 @@ def round10(num):
         return num - (num % 10)
     else:
         return num + (10 - num % 10)
+
+def sum13(list_of_num):
+    '''
+    Return the sum of the numbers in the array. Returning 0 for an empty array.
+    Except the number 13 is very unlucky, so it does not count and numbers that
+    come immediately after a 13 also do not count.
+    >>> sum13([1, 2, 2, 1])
+    6
+    >>> sum13([1, 1])
+    2
+    >>> sum13([1, 2, 2, 1, 13])
+    6
+    '''
+    sum_of_num=0
+    for num in list_of_num:
+        if num != 13:
+            sum_of_num += num
+        elif num == 13:
+            num += 2
+        elif len(list_of_num) == 0:
+            return 0
+    return sum_of_num
